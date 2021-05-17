@@ -1,5 +1,5 @@
 import sys
-sys.stdin = open('case.txt')
+# sys.stdin = open('case.txt')
 def push():
     answer.append(command[i][1])
 def pop():
