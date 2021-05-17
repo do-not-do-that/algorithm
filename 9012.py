@@ -1,5 +1,5 @@
-import sys
-sys.stdin = open('case.txt')
+# import sys
+# sys.stdin = open('case.txt')
 n = int(input())
 
 for _ in range(n):
@@ -18,9 +18,5 @@ for _ in range(n):
             print('YES')
         else:
             print('NO')
-        
-    
 
-
-print(check)
 
