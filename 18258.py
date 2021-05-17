@@ -1,6 +1,6 @@
 import sys
 from collections import deque
-sys.stdin = open('case.txt')
+# sys.stdin = open('case.txt')
 
 n = int(sys.stdin.readline())
 ans=deque()
