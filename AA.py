@@ -1,17 +1,12 @@
 import sys
 # sys.stdin = open('./input.txt','rt')
 
-s = input()
-num=''
-cnt=0
-for i in s:
-    if i.isdigit():
-        num+=i
-num=int(num)
+a = [str(i) for i in range(1,21)]
 
-for i in range(1,num+1):
-    if num%i == 0:
-        cnt+=1
-print(num)
-print(cnt)
 
+for _ in range(10):
+    ai,bi = map(int,input().split())
+    tmp = a[ai-1:bi]
+    tmp=tmp[::-1]
+    a[ai-1:bi] = tmp
+print(' '.join(a))
