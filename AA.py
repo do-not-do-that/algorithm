@@ -1,14 +1,14 @@
 import sys
-# sys.stdin = open('./input.txt','rt')
+sys.stdin = open('./input.txt','rt')
 
 n = int(input())
-a = list(map(int,input().split()))
-sum=0
-tmp=0
-for i in a:
-    if i==1:
-        tmp+=1
-        sum+=tmp
+a=[]
+for i in range(n):
+    s = input()
+    s = s.lower()
+    if s == s[::-1]:
+        print('#%d YES' %(i+1))
     else:
-        tmp=0
-print(sum)
+        print('#%d NO' %(i+1))
+
+
