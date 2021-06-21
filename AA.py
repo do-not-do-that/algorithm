@@ -1,12 +1,37 @@
 import sys
-# sys.stdin = open('./input.txt','rt')
+sys.stdin = open('./input.txt','rt')
 
-a = [str(i) for i in range(1,21)]
+n = int(input())
+a = list(map(int,input().split()))
+m = int(input())
+b = list(map(int,input().split()))
+p1=p2=0
+c=[]
+while p1<n and p2<m:
+    if a[p1]<=b[p2]:
+        c.append(a[p1])
+        p1+=1
+    else:
+        c.append(b[p2])
+        p2+=1
+if p1<n:
+    c=c+a[p1:]
+if p2<m:
+    c=c+b[p2:]
+
+for x in c:
+    print(x , end=' ')
 
 
-for _ in range(10):
-    ai,bi = map(int,input().split())
-    tmp = a[ai-1:bi]
-    tmp=tmp[::-1]
-    a[ai-1:bi] = tmp
-print(' '.join(a))
+
+
+
+# 난 이렇게 짰음
+# n = int(input())
+# a = list(map(int,input().split()))
+# m = int(input())
+# b = list(map(int,input().split()))
+# ans = a+b
+# ans.sort()
+# for i in ans:
+#     print(i, end=' ')
