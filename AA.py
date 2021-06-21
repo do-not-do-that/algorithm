@@ -1,14 +1,17 @@
 import sys
-sys.stdin = open('./input.txt','rt')
+# sys.stdin = open('./input.txt','rt')
 
-n = int(input())
-a=[]
-for i in range(n):
-    s = input()
-    s = s.lower()
-    if s == s[::-1]:
-        print('#%d YES' %(i+1))
-    else:
-        print('#%d NO' %(i+1))
+s = input()
+num=''
+cnt=0
+for i in s:
+    if i.isdigit():
+        num+=i
+num=int(num)
 
+for i in range(1,num+1):
+    if num%i == 0:
+        cnt+=1
+print(num)
+print(cnt)
 
