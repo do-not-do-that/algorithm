@@ -1,12 +1,14 @@
 import sys
 # sys.stdin = open('./input.txt','rt')
 
-t = int(input())
+n, k = map(int,input().split())
+li = list(map(int,input().split()))
+res=set()
+for i in range(n):
+    for j in range(i+1,n):
+        for m in range(j+1,n):
+            res.add(li[i]+li[j]+li[m])
 
-for i in range(t):
-    n,s,e,k = map(int,input().split())
-    li = list(map(int,input().split()))
-    tmp = li[s-1:e]
-    tmp.sort()
-    print('#%d %d'%(i+1,tmp[k-1]))
-
+res=list(res)
+res.sort(reverse=True)
+print(res[k-1])
