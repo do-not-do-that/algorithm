@@ -1,14 +1,18 @@
 import sys
 # sys.stdin = open('./input.txt','rt')
 
-n, k = map(int,input().split())
-li = list(map(int,input().split()))
-res=set()
-for i in range(n):
-    for j in range(i+1,n):
-        for m in range(j+1,n):
-            res.add(li[i]+li[j]+li[m])
-
-res=list(res)
-res.sort(reverse=True)
-print(res[k-1])
+n = int(input())
+students = list(map(int,input().split()))
+avg = round(sum(students)/n)
+min = float('inf')
+for idx, x in enumerate(students):
+    tmp = abs(x-avg)
+    if tmp<min:
+        min = tmp
+        score = x
+        res = idx+1
+    elif tmp == min:
+        if x>score:
+            score = x
+            res = idx+1
+print('%d %d' %(avg, res))
