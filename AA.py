@@ -2,23 +2,13 @@ import sys
 # sys.stdin = open('./input.txt','rt')
 
 n = int(input())
-
-game = []
-tot = []
-
-for i in range(n):
-    game.append(list(map(int,input().split())))
-
-for i in game:
-    if i[0]==i[1]==i[2]:
-        tot.append(10000+i[0]*1000)
-    elif i[0]==i[1] or i[0]==i[2]:
-        tot.append(1000+i[0]*100)
-    elif i[1]==i[2]:
-        tot.append(1000+i[1]*100)
+a = list(map(int,input().split()))
+sum=0
+tmp=0
+for i in a:
+    if i==1:
+        tmp+=1
+        sum+=tmp
     else:
-        tot.append(max(i)*100)
-
-print(max(tot))
-
-    
+        tmp=0
+print(sum)
