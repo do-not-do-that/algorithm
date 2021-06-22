@@ -1,35 +1,28 @@
 import sys
-# sys.stdin =open('./input.txt','rt')
+sys.stdin =open('./input.txt','rt')
+
+dx = [-1,0,1,0]
+dy = [0,1,0,-1]
 
 n = int(input())
-a = [list(map(int,input().split())) for _ in range(n)]
+a = [[0]*(n+2)]+[[0]+list(map(int,input().split()))+[0] for _ in range(n)]+[[0]*(n+2)]
+cnt=0
 
-m = int(input())
-cmd = [list(map(int,input().split())) for _ in range(m)]
-s = 0
-e = n
-tot =0
-for i in range(m):
-    #왼쪽이라면
-    if cmd[i][1]==0:
-        for j in range(cmd[i][2]):
-            tmp1 = a[cmd[i][0]-1]
-            a[cmd[i][0]-1].append(tmp1.pop(0))
-    else:
-        for j in range(cmd[i][2]):
-            tmp1 = a[cmd[i][0]-1]
-            a[cmd[i][0]-1].insert(0,tmp1.pop())
+for i in range(1,n+1):
+    for j in range(1,n+1):
+        if all(a[i][j] > a[i+dx[k]][j+dy[k]] for k in range(4)):
+            cnt+=1
 
-for i in range(n):
-    for j in range(s,e):
-        tot += a[i][j]
-    if i < n//2:
-        s+=1
-        e-=1
-    else:
-        s-=1
-        e+=1
-print(tot)
+print(cnt)
+
+
+# 내 풀이
+# for i in range(1,n+1):
+#     for j in range(1,n+1):
+#         if a[i][j] > a[i-1][j] and a[i][j] > a[i+1][j] and a[i][j] > a[i][j+1] and a[i][j] > a[i][j-1]:
+#             cnt+=1
+
+# print(cnt)
 
 
 
