@@ -1,32 +1,33 @@
 import sys
 # sys.stdin = open('./input.txt','rt')
 
-n,m = map(int,input().split())
+n = int(input())
+a=[list(map(int,input().split())) for _ in range(n)]
 
-a = list(map(int,input().split()))
+largest = -2147000000
 
-#포인터 두개로 가야할듯
-cnt=0
-tot=a[0]
-lt=0
-rt=1
+for i in range(n):
+    sum1 = sum2 =0
+    for j in range(n):
+        sum1+=a[i][j]
+        sum2+=a[j][i]
+    if sum1 > largest:
+        largest= sum1
+    if sum2 > largest:
+        largest= sum2
 
-while True:
-    if tot<m:
-        if rt<n:
-            tot+=a[rt]
-            rt+=1
-        else:
-            break
-    elif tot==m:
-        cnt+=1
-        tot-=a[lt]
-        lt+=1
-    else:
-        tot-=a[lt]
-        lt+=1
+sum1=sum2=0
 
-print(cnt)
+for i in range(n):
+    sum1+=a[i][i]
+    sum2+=a[i][n-1-i]
+    if sum1 > largest:
+        largest= sum1
+    if sum2 > largest:
+        largest= sum2
+
+print(largest)
+
 
 
 
