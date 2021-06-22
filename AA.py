@@ -1,37 +1,32 @@
 import sys
-sys.stdin = open('./input.txt','rt')
+# sys.stdin = open('./input.txt','rt')
 
-n = int(input())
+n,m = map(int,input().split())
+
 a = list(map(int,input().split()))
-m = int(input())
-b = list(map(int,input().split()))
-p1=p2=0
-c=[]
-while p1<n and p2<m:
-    if a[p1]<=b[p2]:
-        c.append(a[p1])
-        p1+=1
+
+#포인터 두개로 가야할듯
+cnt=0
+tot=a[0]
+lt=0
+rt=1
+
+while True:
+    if tot<m:
+        if rt<n:
+            tot+=a[rt]
+            rt+=1
+        else:
+            break
+    elif tot==m:
+        cnt+=1
+        tot-=a[lt]
+        lt+=1
     else:
-        c.append(b[p2])
-        p2+=1
-if p1<n:
-    c=c+a[p1:]
-if p2<m:
-    c=c+b[p2:]
+        tot-=a[lt]
+        lt+=1
 
-for x in c:
-    print(x , end=' ')
+print(cnt)
 
 
 
-
-
-# 난 이렇게 짰음
-# n = int(input())
-# a = list(map(int,input().split()))
-# m = int(input())
-# b = list(map(int,input().split()))
-# ans = a+b
-# ans.sort()
-# for i in ans:
-#     print(i, end=' ')
