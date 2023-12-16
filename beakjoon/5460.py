@@ -24,10 +24,7 @@ def play(N, R, my_rank, others_rank, start_pos):
                 )
             else:
                 pass
-                # current_pos[left_index], current_pos[right_index] = (
-                #     current_pos[right_index],
-                #     current_pos[left_index],
-                # )
+
         # 1번 표적의 패자는 N번 표적으로 이동
         current_pos.append(current_pos.pop(0))
     return current_pos.index(my_rank) + 1
