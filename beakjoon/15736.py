@@ -25,13 +25,20 @@ input = sys.stdin.readline
 # 규칙을 찾아보면... 신기하게 제곱수만 남는다!
 
 
+# N = int(input())
+# cnt = 0
+
+# for i in range(1, N + 1):
+#     if i**2 <= N:
+#         cnt += 1
+#     else:
+#         break
+
+# print(cnt)
+
+
+# 조금 더 깨끗하게 풀어보자.
+# 제곱수를 찾는 문제이니, 루트로 나눈 것을 정수화 시키면 답이 된다.
+
 N = int(input())
-cnt = 0
-
-for i in range(1, N + 1):
-    if i**2 <= N:
-        cnt += 1
-    else:
-        break
-
-print(cnt)
+print(int(N**0.5))
