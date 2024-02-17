@@ -16,8 +16,8 @@ for _ in range(M):
 # load  =  {1: [2, 3], 2: [3, 4], 3: [], 4: []}
 
 
-distance = [0 for _ in range(N + 1)]  # 거리 정보 기록용
-visited = [0 for _ in range(N + 1)]  # 방문 체크용
+distance = [0] * (N + 1)  # 거리 정보 기록용
+visited = [0] * (N + 1)  # 방문 체크용
 queue = deque([X])
 
 visited[X] = 1  # 시작위치 추가
